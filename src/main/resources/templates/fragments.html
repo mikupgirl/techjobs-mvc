@@ -26,6 +26,18 @@
             </div>
         </div>
     </div>
+    <div th:fragment="job-results">
+        <h1 class="job-listing" th:text="${#lists.size(jobs) + ' ' + 'Result(s)'}" ></h1>
 
+        <div class="job-listing" th:each="job : ${jobs}">
+            <table>
+                <tr th:each="entry: ${job}"> <!--for loop that goes through the hashmap, entry first created here-->
+                    <td th:text="${entry.key}"></td>
+                    <td th:text="${entry.value}"></td>
+                </tr>
+                <br />
+            </table>
+        </div>
+    </div>
 </body>
 </html>
