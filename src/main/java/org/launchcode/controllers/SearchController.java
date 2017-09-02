@@ -20,6 +20,7 @@ public class SearchController {
     @RequestMapping(value = "")
     public String search(Model model) {
         model.addAttribute("columns", ListController.columnChoices);
+        model.addAttribute("jobs", new ArrayList());
         return "search";
     }
 
@@ -28,7 +29,7 @@ public class SearchController {
     @RequestMapping(value = "results", method = RequestMethod.GET) //used "get" here since we're not looking for private information
     public String search(@RequestParam String searchType, @RequestParam String searchTerm, Model model) {
 
-        ArrayList<HashMap<String, String>> jobs;
+        ArrayList<HashMap<String, String>> jobs = new ArrayList();
 
         model.addAttribute("columns", ListController.columnChoices);
 
